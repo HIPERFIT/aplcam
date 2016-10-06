@@ -36,15 +36,15 @@ class FutCam:
             self.width = int(self.cam.get(cv2.cv.CV_CAP_PROP_FRAME_WIDTH))
             self.height = int(self.cam.get(cv2.cv.CV_CAP_PROP_FRAME_HEIGHT))
 
+        # Load the library.
+        self.futhark = filters.filters(interactive=True)
+
         # Setup pygame.
         pygame.init()
         pygame.display.set_caption('futcam')
         self.screen = pygame.display.set_mode((self.width, self.height))
         self.font = pygame.font.Font(None, 36)
         self.clock = pygame.time.Clock()
-
-        # Load the library.
-        self.futhark = filters.filters()
 
         # Determine the filters using inspection.
         self.filters = {}
