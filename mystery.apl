@@ -1,22 +1,20 @@
-
 ⍝ Parameters: dims, image, degree
 
 h ← dims[1]
-b ← dims[2]
+w ← dims[2]
 
-m ← h b 3 ⍴ image
+onChannelRows ← {
+  m2 ← ((3×h) w) ⍴ 3 1 2 ⍉ h w 3 ⍴ ⍵ 
+  m2 ← ⍺⍺ m2
+  (h×w×3) ⍴ 2 3 1 ⍉ 3 h w ⍴ m2
+}
 
-m3 ← 3 1 2 ⍉ m
+onChannelCols ← {
+  m ← h (3×w) ⍴ 1 3 2 ⍉ h w 3 ⍴ ⍵ 
+  m ← ⍺⍺ m
+  (h×w×3) ⍴ 1 3 2 ⍉ h 3 w ⍴ m
+}
 
-m2 ← ((3 × h) b) ⍴ m3
-
-m2 ← ⌽ m2
-
-m3 ← 3 h b ⍴ m2
-
-m3 ← 2 3 1 ⍉ m3
-
-image ← (h×b×3) ⍴ m3
-
+image ←	⊖ onChannelCols ⌽ onChannelRows image
 
 

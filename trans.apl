@@ -1,0 +1,1 @@
+image ← { (⌈20×degree) ⊖ (⌈20×degree) ⌽ ⍵ } onChannels image
