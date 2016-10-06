@@ -30,4 +30,5 @@ new colour data.  The size and rank of `image` should not be changed.
 Changes to `dims` and `degree` have no effect.
 
 To add a filter, put it in an `.apl` file.  The Makefile should
-automatically pick it up.
+automatically pick it up.  The name of the filter must not be a
+Futhark keyword.
