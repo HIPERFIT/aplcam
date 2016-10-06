@@ -1,0 +1,15 @@
+⍝ Parameters: dims, image, degree
+
+fun ← {
+  sz ← h×w
+  v ← sz⍴⍵
+  res ← { r ← ⌊⍵÷h
+          c ← ⌊⍵|h
+          v[(r×w) + c + 1]
+        }¨⍳sz
+  h w ⍴ res
+}
+
+image ←	fun onChannels image
+
+
