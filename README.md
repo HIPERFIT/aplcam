@@ -24,5 +24,10 @@ When the program starts, three variables will be defined:
     should change the intensity.  This parameter can be changed at
     runtime by the user using the arrow keys.
 
-If you want to add a filter, just put it in an `.apl` file.  The
-Makefile should automatically pick it up.
+To make a change, a filter should set the `image` variable to a new
+value.  The value of `image` at the end of the program constitutes the
+new colour data.  The size and rank of `image` should not be changed.
+Changes to `dims` and `factor` have no effect.
+
+To add a filter, put it in an `.apl` file.  The Makefile should
+automatically pick it up.
