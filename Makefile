@@ -2,6 +2,7 @@ TAIL_CFLAGS=${CFLAGS} -I ${TAIL_ROOT}/include
 TAIL_PRELUDE=${TAIL_ROOT}/lib/prelude.apl
 APLS=work/$(shell echo *.apl)
 TAILS=$(shell echo *.apl|sed -E 's!([^ ]+)\.apl!work/\1\.tail!g')
+APLT=aplt
 
 ifndef TAIL_ROOT
 $(error TAIL_ROOT is not set)
@@ -22,7 +23,7 @@ filters.fut: $(TAILS)
 	tail2futhark --float-as-single --library $(TAILS) -o $@
 
 %.tail: %.apl
-	aplt  -p_types -s_tail -c -o $@ ${TAIL_PRELUDE} $<
+	$(APLT)  -p_types -s_tail -c -o $@ ${TAIL_PRELUDE} $<
 
 %.apl: %.tail
 
