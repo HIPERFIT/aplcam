@@ -1,0 +1,5 @@
+*.fut
+work
+*.pyc
+*.tail
+filters.py
