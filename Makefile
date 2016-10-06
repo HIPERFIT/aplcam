@@ -1,7 +1,7 @@
 TAIL_CFLAGS=${CFLAGS} -I ${TAIL_ROOT}/include
 TAIL_PRELUDE=${TAIL_ROOT}/lib/prelude.apl
 APLS=work/$(shell echo *.apl)
-TAILS=$(shell echo *.apl|sed -r 's!([^ ]+)\.apl!work/\1\.tail!g')
+TAILS=$(shell echo *.apl|sed -E 's!([^ ]+)\.apl!work/\1\.tail!g')
 
 ifndef TAIL_ROOT
 $(error TAIL_ROOT is not set)
