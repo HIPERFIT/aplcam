@@ -4,15 +4,15 @@ h ← dims[1]
 w ← dims[2]
 
 onChannelRows ← {
-  m2 ← ((3×h) w) ⍴ 3 1 2 ⍉ h w 3 ⍴ ⍵ 
+  m2 ← ((3×h) w) ⍴ 3 1 2 ⍉ ⍵ 
   m2 ← ⍺⍺ m2
-  (h×w×3) ⍴ 2 3 1 ⍉ 3 h w ⍴ m2
+  2 3 1 ⍉ 3 h w ⍴ m2
 }
 
 onChannelCols ← {
-  m ← h (3×w) ⍴ 1 3 2 ⍉ h w 3 ⍴ ⍵ 
+  m ← h (3×w) ⍴ 1 3 2 ⍉ ⍵ 
   m ← ⍺⍺ m
-  (h×w×3) ⍴ 1 3 2 ⍉ h 3 w ⍴ m
+  1 3 2 ⍉ h 3 w ⍴ m
 }
 
 image ←	⊖ onChannelCols ⌽ onChannelRows image

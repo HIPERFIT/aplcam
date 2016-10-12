@@ -87,14 +87,16 @@ class FutCam:
 
             # Mess with the internal representation.
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
-            dims = numpy.asarray(frame.shape, dtype=numpy.int32)
-            frame = frame.reshape(numpy.product(dims)).astype(numpy.int32)
 
             # Scale if asked to.
             if self.scale_to is not None:
                 w, h = self.scale_to
-                frame = self.futhark.scale_to(frame, w, h)
+                frame = cv2.resize(frame, (w,h))
+                #frame = self.futhark.scale_to(frame, w, h)
 
+            dims = numpy.asarray(frame.shape, dtype=numpy.int32)
+            frame = frame.reshape(numpy.product(dims)).astype(numpy.int32)
+                
             # Call stacked filters.
             time_start = time.time()
             for i, u in zip(applied_filters, user_values):

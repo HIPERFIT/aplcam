@@ -1,8 +1,9 @@
+TAIL_ROOT?=$(HOME)/gits/apltail
 TAIL_CFLAGS=${CFLAGS} -I ${TAIL_ROOT}/include
 TAIL_PRELUDE=${TAIL_ROOT}/lib/prelude.apl
 APLS=$(shell echo *.apl)
 TAILS=$(APLS:%.apl=%.tail)
-APLT?=aplt
+APLT?=$(TAIL_ROOT)/aplt
 
 ifndef TAIL_ROOT
 $(error TAIL_ROOT is not set)
@@ -27,3 +28,6 @@ filters.fut: $(TAILS)
 
 clean:
 	rm -rf work filters.fut filters.py *.tail *~ include/*~
+
+demo: filters.py
+	./aplcam.py --scale-to 600x400
