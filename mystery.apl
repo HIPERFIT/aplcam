@@ -4,9 +4,9 @@ h ← dims[1]
 w ← dims[2]
 
 onChannelRows ← {
-  m2 ← ((3×h) w) ⍴ 3 1 2 ⍉ ⍵ 
+  m2 ← ((3×h) w) ⍴ 2 3 1 ⍉ ⍵ 
   m2 ← ⍺⍺ m2
-  2 3 1 ⍉ 3 h w ⍴ m2
+  3 1 2 ⍉ 3 h w ⍴ m2
 }
 
 onChannelCols ← {
