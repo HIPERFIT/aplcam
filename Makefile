@@ -1,4 +1,3 @@
-TAIL_ROOT?=$(HOME)/gits/apltail
 TAIL_CFLAGS=${CFLAGS} -I ${TAIL_ROOT}/include
 TAIL_PRELUDE=${TAIL_ROOT}/lib/prelude.apl
 APLS=$(shell echo *.apl)
